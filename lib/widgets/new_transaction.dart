@@ -8,10 +8,15 @@ import 'package:tugce_flutter_ogreniyor/widgets/adaptive_flat_button.dart';
 class NewTransaction extends StatefulWidget {
   final Function addTx;
 
-  NewTransaction(this.addTx);
+  NewTransaction(this.addTx) {
+    print('Constructor NewTransaction Widget');
+  }
 
   @override
-  State<NewTransaction> createState() => _NewTransactionState();
+  State<NewTransaction> createState() {
+    print('createState NewTransaction Widget');
+    return _NewTransactionState();
+  }
 }
 
 class _NewTransactionState extends State<NewTransaction> {
@@ -19,6 +24,27 @@ class _NewTransactionState extends State<NewTransaction> {
 
   final _amountController = TextEditingController();
   DateTime? _selectedDate;
+
+  _NewTransactionState() {
+    print('Constructor NewTransaction Widget');
+  }
+  @override
+  void initState() {
+    print('initState()');
+    super.initState();
+  }
+
+  @override
+  void didUpdateWidget(covariant NewTransaction oldWidget) {
+    print('didUpdateWidget()');
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
+  void dispose() {
+    print('dispose()');
+    super.dispose();
+  }
 
   void _submitData() {
     if (_amountController.text.isEmpty) {
